@@ -1,0 +1,404 @@
+/* =====================================================
+   VoltCalc - Design System
+   ===================================================== */
+
+:root {
+    --brand-primary: #2563eb;
+    --brand-primary-dark: #1d4ed8;
+    --brand-accent: #06b6d4;
+    --brand-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #06b6d4 100%);
+    --ink-900: #0f172a;
+    --ink-700: #334155;
+    --ink-500: #64748b;
+    --surface-0: #ffffff;
+    --surface-50: #f8fafc;
+    --surface-100: #f1f5f9;
+    --border-subtle: #e2e8f0;
+    --success: #16a34a;
+    --warning: #d97706;
+    --danger: #dc2626;
+    --radius-lg: 1rem;
+    --radius-md: 0.65rem;
+    --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -8px rgba(15, 23, 42, 0.10);
+    --shadow-lift: 0 12px 32px -12px rgba(37, 99, 235, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--surface-50);
+    color: var(--ink-700);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--ink-900);
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Navbar ---------- */
+.app-navbar {
+    background: var(--brand-gradient);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    box-shadow: 0 4px 20px -8px rgba(15, 23, 42, 0.35);
+}
+
+.app-navbar .brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.app-navbar .brand-text {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.app-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease;
+}
+
+.app-navbar .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.app-navbar .nav-link.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+    font-weight: 600;
+}
+
+.btn-nav-cta {
+    background: #fff;
+    color: var(--brand-primary-dark) !important;
+    font-weight: 600;
+    padding: 0.5rem 1.1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background: var(--brand-gradient);
+    color: #fff;
+    padding: 3.5rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0, transparent 45%),
+                       radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10) 0, transparent 40%);
+}
+
+.hero .container { position: relative; }
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    margin-top: 1rem;
+}
+
+.hero p.lead {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    max-width: 42rem;
+}
+
+/* Pulls content up over the hero for a layered, modern feel */
+.content-shift {
+    margin-top: -4.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.card-elevated {
+    border: none;
+    box-shadow: var(--shadow-lift);
+}
+
+.card-header-plain {
+    background: transparent;
+    border-bottom: 1px solid var(--border-subtle);
+    font-weight: 700;
+    color: var(--ink-900);
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink-900);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i { color: var(--brand-primary); }
+
+/* ---------- Form ---------- */
+.form-label {
+    font-weight: 600;
+    color: var(--ink-700);
+    font-size: 0.9rem;
+}
+
+.form-control, .form-select {
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border-subtle);
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.input-icon-group {
+    position: relative;
+}
+
+.input-icon-group .form-control { padding-left: 2.5rem; }
+
+.input-icon-group .icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-500);
+}
+
+.btn-primary {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: var(--brand-primary-dark);
+    border-color: var(--brand-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px -10px rgba(37, 99, 235, 0.55);
+}
+
+.btn-outline-light-brand {
+    border: 1.5px solid var(--border-subtle);
+    color: var(--ink-700);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    background: #fff;
+}
+
+.btn-outline-light-brand:hover {
+    background: var(--surface-100);
+    color: var(--ink-900);
+}
+
+/* ---------- Tariff table ---------- */
+.tariff-table th, .tariff-table td {
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.tariff-table thead th {
+    background: var(--surface-100);
+    color: var(--ink-700);
+    font-weight: 600;
+    border-bottom: none;
+}
+
+.tariff-badge {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--brand-primary-dark);
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+/* ---------- Stat cards (dashboard) ---------- */
+.stat-card {
+    border-radius: var(--radius-lg);
+    background: var(--surface-0);
+    border: 1px solid var(--border-subtle);
+    padding: 1.25rem 1.4rem;
+    box-shadow: var(--shadow-soft);
+    height: 100%;
+}
+
+.stat-card .stat-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.stat-icon.blue { background: rgba(37, 99, 235, 0.1); color: var(--brand-primary); }
+.stat-icon.green { background: rgba(22, 163, 74, 0.1); color: var(--success); }
+.stat-icon.amber { background: rgba(217, 119, 6, 0.1); color: var(--warning); }
+.stat-icon.cyan { background: rgba(6, 182, 212, 0.1); color: var(--brand-accent); }
+
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--ink-900);
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: var(--ink-500);
+    font-weight: 500;
+}
+
+/* ---------- Result page ---------- */
+.result-hero-amount {
+    background: var(--brand-gradient);
+    border-radius: var(--radius-lg);
+    color: #fff;
+    padding: 1.75rem;
+    text-align: center;
+}
+
+.result-hero-amount .amount-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+    font-weight: 600;
+}
+
+.result-hero-amount .amount-value {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-top: 0.25rem;
+}
+
+.breakup-table tr td:first-child { font-weight: 500; color: var(--ink-700); }
+.breakup-table tr td:last-child { font-weight: 700; color: var(--ink-900); text-align: right; }
+
+/* ---------- History table ---------- */
+#historyTable thead th {
+    background: var(--surface-100);
+    font-weight: 600;
+    color: var(--ink-700);
+    border-bottom: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+#historyTable tbody tr { transition: background 0.1s ease; }
+#historyTable tbody tr:hover { background: var(--surface-50); }
+
+.amount-chip {
+    font-weight: 700;
+    color: var(--success);
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+    background: var(--ink-900);
+    color: rgba(255, 255, 255, 0.65);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.app-footer .footer-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.app-footer .footer-brand i { color: var(--brand-accent); }
+
+/* ---------- Misc ---------- */
+.badge-soft-success {
+    background: rgba(22, 163, 74, 0.12);
+    color: var(--success);
+    font-weight: 600;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--ink-500);
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    color: var(--border-subtle);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 767.98px) {
+    .hero { padding: 2.5rem 0 5rem; }
+    .content-shift { margin-top: -3.25rem; }
+    .result-hero-amount .amount-value { font-size: 1.9rem; }
+    .app-footer .col-md-6.text-md-end { text-align: left !important; margin-top: 0.5rem; }
+}
+
+@media (max-width: 575.98px) {
+    .stat-value { font-size: 1.35rem; }
+    .hero { padding: 2rem 0 4.5rem; }
+}
